@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: Basic Building Blocks
-  Author: Nick Carchedi
+  Author: Nick Carchedi, modified by Yusri Yusup
   Type: Standard
-  Organization: JHU Biostat
-  Version: 2.2.0
+  Organization: JHU Biostat, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: In this lesson, we will explore some basic building blocks of the R programming
@@ -245,9 +245,9 @@
   Hint: If your programming environment doesn't support auto-completion, just type my_div and hit Enter to move on.
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
