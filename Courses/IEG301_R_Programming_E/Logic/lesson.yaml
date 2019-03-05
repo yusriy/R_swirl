@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: Logic
-  Author: Sean Kross
+  Author: Sean Kross, modified by Yusri Yusup
   Type: Standard
-  Organization: swirlstats
-  Version: 2.2.15
+  Organization: swirlstats, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: This lesson is meant to be a short introduction to logical operations in R.
@@ -348,10 +348,10 @@
     what you can do with logic, check out the control flow lesson!"
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
   

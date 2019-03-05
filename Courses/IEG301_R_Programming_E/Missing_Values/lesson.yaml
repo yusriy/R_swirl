@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: Missing Values
-  Author: Nick Carchedi
+  Author: Nick Carchedi, modified by Yusri Yusup
   Type: Standard
-  Organization: JHU Biostat
-  Version: 2.2.0
+  Organization: JHU Biostat, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: Missing values play an important role in statistics and data analysis. Often, missing values must not be ignored, but rather they should be carefully studied to see if there's an underlying pattern or cause for their missingness.
@@ -103,10 +103,10 @@
   Hint: Type Inf - Inf. Can you guess the result?
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
   

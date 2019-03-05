@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: Looking at Data
-  Author: Nick Carchedi
+  Author: Nick Carchedi, modified by Yusri Yusup
   Type: Standard
-  Organization: JHU Biostat
-  Version: 2.2.11
+  Organization: JHU Biostat, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: Whenever you're working with a new dataset, the first thing you should do is look at it! What is the format of the data? What are the dimensions? What are the variable names? How are the variables stored? Are there missing data? Are there any flaws in the data?
@@ -121,10 +121,10 @@
   Output: In this lesson, you learned how to get a feel for the structure and contents of a new dataset using a collection of simple and useful functions. Taking the time to do this upfront can save you time and frustration later on in your analysis.
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
   

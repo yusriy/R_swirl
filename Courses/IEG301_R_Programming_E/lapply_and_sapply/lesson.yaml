@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: lapply and sapply
-  Author: Nick Carchedi
+  Author: Nick Carchedi, modified by Yusri Yusup
   Type: Standard
-  Organization: JHU Biostat
-  Version: 2.2.11
+  Organization: JHU Biostat, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: In this lesson, you'll learn how to use lapply() and sapply(), the two most important members of R's *apply family of functions, also known as loop functions.
@@ -235,10 +235,10 @@
   Output: In this lesson, you learned how to use the powerful lapply() and sapply() functions to apply an operation over the elements of a list. In the next lesson, we'll take a look at some close relatives of lapply() and sapply().
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
   

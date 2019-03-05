@@ -1,10 +1,10 @@
 - Class: meta
-  Course: R Programming E
+  Course: IEG301 R Programming E 
   Lesson: Functions
-  Author: Sean Kross
+  Author: Sean Kross, modified by Yusri Yusup
   Type: Standard
-  Organization: swirlstats
-  Version: 2.2.14
+  Organization: swirlstats, School of Industrial Tech, Universiti Sains Malaysia
+  Version: 1.0.0
 
 - Class: text
   Output: Functions are one of the fundamental building blocks of the R language. They are small 
@@ -333,10 +333,10 @@
     great functions!"
 
 - Class: mult_question
-  Output: Would you like to inform someone about your successful completion of 
-    this lesson via email?
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
   CorrectAnswer: NULL
-  AnswerChoices: Yes; No
-  AnswerTests: notify()
-  Hint: NULL
+  AnswerTests: submit_log()
+  Hint: hint
   
