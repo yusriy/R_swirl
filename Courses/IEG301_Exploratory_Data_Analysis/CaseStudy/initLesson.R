@@ -9,13 +9,13 @@ library(fields)
 
 # Put initialization code in this file.
 path_to_course <- file.path(.get_course_path(),
-  "Exploratory_Data_Analysis","CaseStudy")
+  "IEG301_Exploratory_Data_Analysis","CaseStudy")
 try(dev.off(),silent=TRUE)
 plot.new()
 
 pathtofile <- function(fileName){
   mypath <- file.path(.get_course_path(),
-    "Exploratory_Data_Analysis","CaseStudy",
+    "IEG301_Exploratory_Data_Analysis","CaseStudy",
                       fileName)
 }
 fxfer <- function(fileName){
