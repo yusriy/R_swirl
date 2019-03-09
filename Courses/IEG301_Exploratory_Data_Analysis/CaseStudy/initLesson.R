@@ -59,3 +59,10 @@ pm1 <- read.table(my2012, comment.char = "#", header = FALSE, sep = "|", na.stri
 wcol <- c(3,4,5,11,13)
 #pm0 <- pm0[,wcol]
 #pm1 <- pm1[,wcol]
+
+# Code placed in this file fill be executed every time the
+# lesson is started. Any variables created here will show up in
+# the user's working directory and thus be accessible to them
+# throughout the lesson.
+
+swirl_options(swirl_logging = TRUE)

@@ -2,3 +2,4 @@ ggplot2
 fields
 jpeg
 datasets
+base64enc

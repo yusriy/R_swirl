@@ -14,3 +14,10 @@ low <- pollution$pm25[pollution$pm25<5]
 ppm <- pollution$pm25
 plot.new()
 par(mfrow=c(1,1))
+
+# Code placed in this file fill be executed every time the
+# lesson is started. Any variables created here will show up in
+# the user's working directory and thus be accessible to them
+# throughout the lesson.
+
+swirl_options(swirl_logging = TRUE)

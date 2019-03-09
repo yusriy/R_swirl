@@ -62,3 +62,10 @@ fxfer("addPatt.R")
 constantMatrix <- dataMatrixOrdered*0
 for(i in 1:dim(dataMatrixOrdered)[1]){constantMatrix[i,] <- rep(c(0,1),each=5)}
 svd2 <- svd(constantMatrix)
+
+# Code placed in this file fill be executed every time the
+# lesson is started. Any variables created here will show up in
+# the user's working directory and thus be accessible to them
+# throughout the lesson.
+
+swirl_options(swirl_logging = TRUE)

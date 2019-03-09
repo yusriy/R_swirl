@@ -67,3 +67,9 @@ kmObj <- kmeans(dataFrame,3)
 # distTmp2[2,] <- (x-newCx[2])^2 + (y-newCy[2])^2
 # distTmp2[3,] <- (x-newCx[3])^2 + (y-newCy[3])^2
 
+# Code placed in this file fill be executed every time the
+# lesson is started. Any variables created here will show up in
+# the user's working directory and thus be accessible to them
+# throughout the lesson.
+
+swirl_options(swirl_logging = TRUE)
