@@ -6,7 +6,7 @@
 }
 
 # Path to installed lesson
-.lessonpath <- file.path(.get_course_path(), "IEG301_R_Programming_E",
+.lessonpath <- file.path(.get_course_path(), "IEA514_R_Programming_E",
                         "lapply_and_sapply")
 # Path to dataset
 .datapath <- file.path(.lessonpath, "flag.data.txt")

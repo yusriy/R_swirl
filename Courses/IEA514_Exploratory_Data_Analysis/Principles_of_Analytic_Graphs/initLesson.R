@@ -10,7 +10,7 @@ library(jpeg)
 
 # Put initialization code in this file.
 path_to_course <- file.path(.get_course_path(),
-	"Exploratory_Data_Analysis","Principles_of_Analytic_Graphs")
+	"IEA514_Exploratory_Data_Analysis","Principles_of_Analytic_Graphs")
 plot.new()
 
 # Code placed in this file fill be executed every time the

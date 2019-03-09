@@ -7,7 +7,7 @@
 
 # Path to data
 .datapath <- file.path(.get_course_path(),
-                      'IEG301_R_Programming_E', 'Looking_at_Data',
+                      'IEA514_R_Programming_E', 'Looking_at_Data',
                       'plant-data.txt')
 # Read in data
 plants <- read.csv(.datapath, strip.white=TRUE, na.strings="")
