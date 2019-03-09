@@ -5,17 +5,16 @@ library(swirlify)
 library(dplyr)
 
 #### Change this to go to the next name, course, lesson, etc ####
-# n_course = 1 R Programming E; n_lesson = 15
-# n_course = 2 IEG301 R Programming E; n_lesson = 15
-# n_course = 3 IEG301 Getting and Cleaning Data; n_lesson = 4
-# n_course = 4 IEG301 Exploratory Data Analysis; n_lesson = 9
+# n_course = 1 IEG301 R Programming E; n_lesson = 15
+# n_course = 2 IEG301 Getting and Cleaning Data; n_lesson = 4
+# n_course = 3 IEG301 Exploratory Data Analysis; n_lesson = 9
 
-n_course <- 2
-n_lesson <- 14
+n_course <- 1
+n_lesson <- 1
 # Import the data
 
 #### Total scores for each lesson ####
-if (n_course == 2) {
+if (n_course == 1) {
   total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1
                                        "workspace_and_files", # lesson 2
                                        "sequences_of_numbers", # lesson 3
@@ -35,7 +34,7 @@ if (n_course == 2) {
                                             26,19))
 }
 
-if (n_course == 3) {
+if (n_course == 2) {
   total_score <- data.frame(lesson = c("Manipulating Data with dplyr", # lesson 1
                                        "Grouping and Chaining with dplyr", # lesson 2
                                        "Tidying data with tidyr", # lesson 3
@@ -43,7 +42,7 @@ if (n_course == 3) {
                             total_score = c(38,21,20,44))
 }
 
-if (n_course == 4) {
+if (n_course == 3) {
   total_score <- data.frame(lesson = c("Principles of Analytics Graphs", # lesson 1
                                        "Exploratory Graphs", # lesson 2
                                        "Graphic Devices in R", # lesson 3
