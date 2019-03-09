@@ -8,7 +8,7 @@ library(dplyr)
 # n_course = 1 R Programming E; n_lesson = 15
 # n_course = 2 IEG301 R Programming E; n_lesson = 15
 # n_course = 3 IEG301 Getting and Cleaning Data; n_lesson = 4
-# n_course = 4 IEG301 Exploratory Data Analysis; n_lesson = ???
+# n_course = 4 IEG301 Exploratory Data Analysis; n_lesson = 9
 
 n_course <- 2
 n_lesson <- 14
@@ -44,7 +44,16 @@ if (n_course == 3) {
 }
 
 if (n_course == 4) {
-  
+  total_score <- data.frame(lesson = c("Principles of Analytics Graphs", # lesson 1
+                                       "Exploratory Graphs", # lesson 2
+                                       "Graphic Devices in R", # lesson 3
+                                       "Plotting Systems", # lesson 4
+                                       "Base Plotting Systems", # lesson 5
+                                       "Hierarchical Clustering", # lesson 6
+                                       "K means Clustering", # lesson 7
+                                       "Dimension Reduction", # lesson 8
+                                       "Case Study"), # lesson 9
+                            total_score = c(10,33,18,11,31,16,21,23,62))
 }
 
 # Choose the data file to import
