@@ -6,8 +6,8 @@ library(dplyr)
 
 #### Change this to go to the next name, course, lesson, etc ####
 # n_course = 1 R Programming E; n_lesson = 15
-# n_course = 2 IEG301 R Programming E; n_lesson = ???
-# n_course = 3 IEG301 Getting and Cleaning Data; n_lesson = ???
+# n_course = 2 IEG301 R Programming E; n_lesson = 15
+# n_course = 3 IEG301 Getting and Cleaning Data; n_lesson = 4
 # n_course = 4 IEG301 Exploratory Data Analysis; n_lesson = ???
 
 n_course <- 2
@@ -36,7 +36,11 @@ if (n_course == 2) {
 }
 
 if (n_course == 3) {
-  
+  total_score <- data.frame(lesson = c("Manipulating Data with dplyr", # lesson 1
+                                       "Grouping and Chaining with dplyr", # lesson 2
+                                       "Tidying data with tidyr", # lesson 3
+                                       "Dates and Times with lubridate"), # lesson 4,
+                            total_score = c(38,21,20,44))
 }
 
 if (n_course == 4) {
