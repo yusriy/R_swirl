@@ -10,28 +10,28 @@ library(dplyr)
 # n_course = 3 IEG301 Exploratory Data Analysis; n_lesson = 9
 
 n_course <- 1
-n_lesson <- 1
+n_lesson <- 15
 # Import the data
 
 #### Total scores for each lesson ####
 if (n_course == 1) {
-  total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1
-                                       "workspace_and_files", # lesson 2
-                                       "sequences_of_numbers", # lesson 3
-                                       "vectors", # lesson 4
-                                       "missing_values", # lesson 5
-                                       "subsetting_vectors", # lesson 6
-                                       "matrices_and_dataframes", # lesson 7
-                                       "logic", # lesson 8
-                                       "functions", # lesson 9
-                                       "lapply_and_sapply", # lesson 10
-                                       "vapply_and_tapply", # lesson 11
-                                       "looking_at_data", # lesson 12
-                                       "simulation", # lesson 13
-                                       "dates_and_times", # lesson 14
-                                       "base_graphics"), # lesson 15
-                            total_score = c(18,21,14,13,21,21,21,22,19,26,10,13,22,
-                                            26,19))
+  total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1 = 18
+                                       "workspace_and_files", # lesson 2 = 21
+                                       "sequences_of_numbers", # lesson 3 = 14
+                                       "vectors", # lesson 4 = 13
+                                       "missing_values", # lesson 5 = 21
+                                       "subsetting_vectors", # lesson 6 = 21
+                                       "matrices_and_dataframes", # lesson 7 = 21
+                                       "logic", # lesson 8 = 22
+                                       "functions", # lesson 9 = 19
+                                       "lapply_and_sapply", # lesson 10 = 26
+                                       "vapply_and_tapply", # lesson 11 = 10
+                                       "looking_at_data", # lesson 12 = 13
+                                       "simulation", # lesson 13 = 22
+                                       "dates_and_times", # lesson 14 = 26
+                                       "base_graphics"), # lesson 15 = 19
+                            total_score = c(18,21,14,13,12,21,21,22,19,10,13,22,19,
+                                            19,19))
 }
 
 if (n_course == 2) {
