@@ -10,7 +10,7 @@ library(dplyr)
 # n_course = 3 IEG301 Exploratory Data Analysis; n_lesson = 9
 
 n_course <- 1
-n_lesson <- 15
+n_lesson <- 2
 # Import the data
 
 #### Total scores for each lesson ####
