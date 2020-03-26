@@ -5,17 +5,16 @@ library(swirlify)
 library(dplyr)
 
 #### Change this to go to the next name, course, lesson, etc ####
-# n_course = 1 IEG301 R Programming E; n_lesson = 15
-# n_course = 2 IEG301 Getting and Cleaning Data; n_lesson = 4
-# n_course = 3 IEG301 Exploratory Data Analysis; n_lesson = 9
+# n_course = 1 IEG301 R Programming E; n_lesson = 11
+# n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 
 n_course <- 1
-n_lesson <- 2
+n_lesson <- 1
 # Import the data
 
 #### Total scores for each lesson ####
 if (n_course == 1) {
-  total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1 = 18
+  total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1 = 20
                                        "workspace_and_files", # lesson 2 = 21
                                        "sequences_of_numbers", # lesson 3 = 14
                                        "vectors", # lesson 4 = 13
@@ -23,26 +22,14 @@ if (n_course == 1) {
                                        "subsetting_vectors", # lesson 6 = 21
                                        "matrices_and_dataframes", # lesson 7 = 21
                                        "logic", # lesson 8 = 22
-                                       "functions", # lesson 9 = 19
-                                       "lapply_and_sapply", # lesson 10 = 26
-                                       "vapply_and_tapply", # lesson 11 = 10
                                        "looking_at_data", # lesson 12 = 13
-                                       "simulation", # lesson 13 = 22
                                        "dates_and_times", # lesson 14 = 26
                                        "base_graphics"), # lesson 15 = 19
-                            total_score = c(18,21,14,13,12,21,21,22,19,10,13,22,19,
-                                            19,19))
+                            total_score = c(20,21,14,13,21,21,21,22,13,26,19))
 }
+
 
 if (n_course == 2) {
-  total_score <- data.frame(lesson = c("Manipulating Data with dplyr", # lesson 1
-                                       "Grouping and Chaining with dplyr", # lesson 2
-                                       "Tidying data with tidyr", # lesson 3
-                                       "Dates and Times with lubridate"), # lesson 4,
-                            total_score = c(38,21,20,44))
-}
-
-if (n_course == 3) {
   total_score <- data.frame(lesson = c("Principles of Analytics Graphs", # lesson 1
                                        "Exploratory Graphs", # lesson 2
                                        "Graphic Devices in R", # lesson 3
