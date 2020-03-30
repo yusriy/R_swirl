@@ -5,16 +5,17 @@ library(swirlify)
 library(dplyr)
 
 #### Change this to go to the next name, course, lesson, etc ####
-# n_course = 1 IEG301 R Programming E; n_lesson = 11
-# n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
+# n_course = 1 IEA514 R Programming E; n_lesson = 11
+# n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
 
-n_course <- 1
+n_course <- 2
 n_lesson <- 1
 # Import the data
 
 #### Total scores for each lesson ####
+# n_course = 1 IEA514 R Programming E; n_lesson = 11
 if (n_course == 1) {
-  total_score <- data.frame(lesson = c("basic_building_blocks", # lesson 1 = 20
+  total_score <- data.frame(lesson = c("Basic Building Blocks", # lesson 1 = 20
                                        "workspace_and_files", # lesson 2 = 21
                                        "sequences_of_numbers", # lesson 3 = 14
                                        "vectors", # lesson 4 = 13
@@ -26,11 +27,12 @@ if (n_course == 1) {
                                        "dates_and_times", # lesson 14 = 26
                                        "base_graphics"), # lesson 15 = 19
                             total_score = c(20,21,14,13,21,21,21,22,13,26,19))
+  
 }
 
-
+# n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
 if (n_course == 2) {
-  total_score <- data.frame(lesson = c("Principles of Analytics Graphs", # lesson 1
+  total_score <- data.frame(lesson = c("Principles_of_Analytic_Graphs", # lesson 1
                                        "Exploratory Graphs", # lesson 2
                                        "Graphic Devices in R", # lesson 3
                                        "Plotting Systems", # lesson 4
@@ -40,7 +42,9 @@ if (n_course == 2) {
                                        "Dimension Reduction", # lesson 8
                                        "Case Study"), # lesson 9
                             total_score = c(10,33,18,11,31,16,21,23,62))
+  
 }
+
 
 # Choose the data file to import
 df <- google_form_decode()
@@ -81,16 +85,16 @@ df_score <- as.vector(nrow(names_user))
 
 for (i in 1:nrow(names_user)){
   df_user <- df %>% filter(user == names_user$value[i]) %>%
-    filter(lesson_name == names_lessons$value[n_lesson]) %>%
     filter(course_name == names_courses$value[n_course]) %>% 
+    filter(lesson_name == as.character(total_score$lesson[n_lesson])) %>%
     filter(correct == TRUE & skipped == FALSE)
-  
+  #names_lessons$value[n_lesson]
   score <- with(df_user, length(unique(question_number))) / 
     total_score$total_score[n_lesson] * 100
   
   df_name[i] <- names_user$value[i]
   df_course[i] <- as.character(names_courses$value[n_course])
-  df_lesson[i] <- as.character(names_lessons$value[n_lesson])
+  df_lesson[i] <- as.character(total_score$lesson[n_lesson])
   df_score[i] <- score
   
 }
