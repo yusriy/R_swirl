@@ -7,8 +7,8 @@ library(dplyr)
 #### Change this to go to the next name, course, lesson, etc ####
 # n_course = 1 IEG301 R Programming E; n_lesson = 11
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
-n_course <- 2
-n_lesson <- 9
+n_course <- 1
+n_lesson <- 10
 
 # Import the data
 
@@ -24,7 +24,7 @@ if (n_course == 1) {
                                        "Matrices and Dataframes", # lesson 7 = 21, 20 min
                                        "Logic", # lesson 8 = 33, 40 min
                                        "Looking at Data", # lesson 12 = 13, 30 min
-                                       "Dates and Times", # lesson 14 = 26, ? min
+                                       "Dates and Times", # lesson 14 = 26, 30 min
                                        "Base Graphics"), # lesson 15 = 19, 20 min
                             total_score = c(20,21,14,17,12,24,21,33,13,26,19))
   ques_basic_building_blocks <- c(3,8,10,11,12,14,15,16,17,18,21,22,23,25,26,27,31,33,36,38)
@@ -140,6 +140,7 @@ df_IEG301_results <- data.frame(name = df_IEG301_name, course = as.character(df_
                          lesson = as.character(df_IEG301_lesson), score = df_IEG301_score)
 
 
+write.table(df_IEG301_results,'IEG301_temp.csv',sep=',')
 
 
   
