@@ -7,27 +7,39 @@ library(dplyr)
 #### Change this to go to the next name, course, lesson, etc ####
 # n_course = 1 IEA514 R Programming E; n_lesson = 11
 # n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
+n_course <- 1
+n_lesson <- 11
 
-n_course <- 2
-n_lesson <- 1
+
+
 # Import the data
 
 #### Total scores for each lesson ####
 # n_course = 1 IEA514 R Programming E; n_lesson = 11
 if (n_course == 1) {
-  total_score <- data.frame(lesson = c("Basic Building Blocks", # lesson 1 = 20
-                                       "workspace_and_files", # lesson 2 = 21
-                                       "sequences_of_numbers", # lesson 3 = 14
-                                       "vectors", # lesson 4 = 13
-                                       "missing_values", # lesson 5 = 21
-                                       "subsetting_vectors", # lesson 6 = 21
-                                       "matrices_and_dataframes", # lesson 7 = 21
-                                       "logic", # lesson 8 = 22
-                                       "looking_at_data", # lesson 12 = 13
-                                       "dates_and_times", # lesson 14 = 26
-                                       "base_graphics"), # lesson 15 = 19
-                            total_score = c(20,21,14,13,21,21,21,22,13,26,19))
-  
+  total_score <- data.frame(lesson = c("Basic Building Blocks", # lesson 1 = 20, 30 min
+                                       "Workspace and Files", # lesson 2 = 21, 30 min
+                                       "Sequences of Numbers", # lesson 3 = 14, 60 min
+                                       "Vectors", # lesson 4 = 17, 60 min
+                                       "Missing Values", # lesson 5 = 12, 20 min,
+                                       "Subsetting Vectors", # lesson 6 = 21, 30 min
+                                       "Matrices and Dataframes", # lesson 7 = 21, 20 min
+                                       "Logic", # lesson 8 = 33, 40 min
+                                       "Looking at Data", # lesson 12 = 13, 30 min
+                                       "Dates and Times", # lesson 14 = 26, ? min
+                                       "Base Graphics"), # lesson 15 = 19, 20 min
+                            total_score = c(20,21,14,17,12,24,21,33,13,26,19))
+  ques_basic_building_blocks <- c(3,8,10,11,12,14,15,16,17,18,21,22,23,25,26,27,31,33,36,38)
+  ques_workspace <- c(5,6,8,9,10,11,14,15,17,19,21,22,23,25,27,29,31,32,33,34,35)
+  ques_sequences <- c(2,3,5,8,10,11,12,13,15,16,17,21,22,23)
+  ques_vectors <- c(5,6,7,8,11,17,18,19,22,23,25,28,29,30,32,33,35)
+  ques_missing <- c(3,4,6,7,8,9,10,12,17,18,19,20)
+  ques_subsetting <- c(3,5,8,9,10,11,13,14,15,17,21,22,23,26,27,29,30,31,32,33,34,36,37,38)
+  ques_matrices <- c(3,4,5,6,7,9,10,12,13,14,16,17,18,21,22,26,27,30,33,34,35)
+  ques_logic <- c(4,6,7,9,10,12,13,14,15,17,18,20,21,23,27,28,30,32,33,35,36,37,38,39,41,42,43,44,46,47,49,50,51)
+  ques_looking <- c(3,4,6,8,9,10,11,13,15,16,17,20,22)
+  ques_dates <- c(NA)
+  ques_base_graphics <- c(4,6,8,10,14,16,19,22,23,24,27,28,30,31,33,37,39,42,45)
 }
 
 # n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
@@ -47,59 +59,71 @@ if (n_course == 2) {
 
 
 # Choose the data file to import
-df <- google_form_decode()
+df_IEA514 <- google_form_decode(path = '~/Documents/Work/Data_analysis/R_swirl/results_IEA514_sem2_2019_2020/IEA514 R Swirl Semester 2 2019-2020.csv')
 
 # Convert from seconds to date
-df$datetime <- as.POSIXct(df$datetime,origin="1970-01-01")
+df_IEA514$datetime <- as.POSIXct(df_IEA514$datetime,origin="1970-01-01")
 
 # Change some columns to factors or logicals
-df$course_name <- as.factor(df$course_name)
-df$lesson_name <- as.factor(df$lesson_name)
-df$correct <- as.logical(df$correct)
-df$skipped <- as.logical(df$skipped)
+df_IEA514$course_name <- as.factor(df_IEA514$course_name)
+df_IEA514$lesson_name <- as.factor(df_IEA514$lesson_name)
+df_IEA514$correct <- as.logical(df_IEA514$correct)
+df_IEA514$skipped <- as.logical(df_IEA514$skipped)
 
 # Change the lesson to tbl format
-df <- na.omit(df) # Omit all rows with NA's, usually bad data row.
-df <- tbl_df(df)
+df_IEA514 <- na.omit(df_IEA514) # Omit all rows with NA's, usually bad data row.
+df_IEA514 <- tbl_df(df_IEA514)
 
 # Check the list of names
-names_user <- tbl_df(unique(df$user))
+names_user <- tbl_df(unique(df_IEA514$user))
 names_user <- arrange(names_user,value)
 print(names_user)
 
 # Check the list of courses
-names_courses <- tbl_df(unique(df$course_name))
+names_courses <- tbl_df(unique(df_IEA514$course_name))
 print(names_courses)
 
 # Check the list of lessons
-names_lessons <- tbl_df(unique(df$lesson_name))
+names_lessons <- tbl_df(unique(df_IEA514$lesson_name))
 print(names_lessons)
+
+#### Per user analysis ####
+i <- 17
+df_IEA514_user <- df_IEA514 %>% filter(user == names_user$value[i]) %>%
+  filter(course_name == names_courses$value[n_course]) %>% 
+  filter(lesson_name == as.character(total_score$lesson[n_lesson]))
+
 
 #### Score calculation ####
 # create dataframe to hold results
-df_results <- data.frame()
-df_name <- as.vector(nrow(names_user))
-df_course <- as.vector(nrow(names_user))
-df_lesson <- as.vector(nrow(names_user))
-df_score <- as.vector(nrow(names_user))
+df_IEA514_results <- data.frame()
+df_IEA514_name <- as.vector(nrow(names_user))
+df_IEA514_course <- as.vector(nrow(names_user))
+df_IEA514_lesson <- as.vector(nrow(names_user))
+df_IEA514_score <- as.vector(nrow(names_user))
 
+#### Overall results ####
 for (i in 1:nrow(names_user)){
-  df_user <- df %>% filter(user == names_user$value[i]) %>%
+  df_IEA514_user <- df_IEA514 %>% filter(user == names_user$value[i]) %>%
     filter(course_name == names_courses$value[n_course]) %>% 
     filter(lesson_name == as.character(total_score$lesson[n_lesson])) %>%
     filter(correct == TRUE & skipped == FALSE)
   #names_lessons$value[n_lesson]
-  score <- with(df_user, length(unique(question_number))) / 
+  score <- with(df_IEA514_user, length(unique(question_number))) / 
     total_score$total_score[n_lesson] * 100
   
-  df_name[i] <- names_user$value[i]
-  df_course[i] <- as.character(names_courses$value[n_course])
-  df_lesson[i] <- as.character(total_score$lesson[n_lesson])
-  df_score[i] <- score
+  df_IEA514_name[i] <- names_user$value[i]
+  df_IEA514_course[i] <- as.character(names_courses$value[n_course])
+  df_IEA514_lesson[i] <- as.character(total_score$lesson[n_lesson])
+  df_IEA514_score[i] <- score
   
 }
 
-df_results <- data.frame(name = df_name, course = as.character(df_course), 
-                         lesson = as.character(df_lesson), score = df_score)
+df_IEA514_results <- data.frame(name = df_IEA514_name, course = as.character(df_IEA514_course), 
+                                lesson = as.character(df_IEA514_lesson), score = df_IEA514_score)
+
+
+
+
 
 
