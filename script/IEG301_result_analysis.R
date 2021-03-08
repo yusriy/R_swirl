@@ -9,7 +9,7 @@ library(dplyr)
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 38 # Need to change based on the number of students or rows
+n_rows <- 40 # Need to change based on the number of students or rows
 df_IEG301_results_all <- data.frame(no = c(1:n_rows))
 
 for (nLesson in 1:n_lesson){
