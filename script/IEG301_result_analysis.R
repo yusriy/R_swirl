@@ -9,8 +9,9 @@ library(dplyr)
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 40 # Need to change based on the number of students or rows
+n_rows <- 37 # Need to change based on the number of students or rows
 df_IEG301_results_all <- data.frame(no = c(1:n_rows))
+pathFile ="results_IEG301_sem2_2020_2021/IEG301 R Swirl 2020 2021 Semester 2.csv"
 
 for (nLesson in 1:n_lesson){
   # Import the data
@@ -79,8 +80,7 @@ for (nLesson in 1:n_lesson){
   
   
   # Choose the data file to import
-  df_IEG301 <- google_form_decode(path = '~/Documents/Work/Data_analysis/R_swirl/results_IEG301_sem2_2019_2020/IEG301 R Swirl Semester 2 2019-2020.csv')
-  
+  df_IEG301 <- google_form_decode(path = pathFile)
   # Convert from seconds to date
   df_IEG301$datetime <- as.POSIXct(df_IEG301$datetime,origin="1970-01-01")
   
@@ -140,13 +140,13 @@ for (nLesson in 1:n_lesson){
 
 
 
-write.table(df_IEG301_results_all,'IEG301_temp.csv',sep=',')
+write.table(df_IEG301_results_all,'IEG301_temp_2.csv',sep=',')
 
 
   
-#### Per user analysis ####
-i <- 9
-df_IEG301_user <- df_IEG301 %>% filter(user == names_user$value[i]) %>%
-  filter(course_name == names_courses$value[n_course]) %>% 
-  filter(lesson_name == as.character(total_score$lesson[n_lesson]))
+# #### Per user analysis ####
+# i <- 9
+# df_IEG301_user <- df_IEG301 %>% filter(user == names_user$value[i]) %>%
+#   filter(course_name == names_courses$value[n_course]) %>% 
+#   filter(lesson_name == as.character(total_score$lesson[n_lesson]))
   

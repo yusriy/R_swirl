@@ -9,9 +9,9 @@ library(dplyr)
 # n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 1 # Need to change based on the number of students or rows
+n_rows <- 12 # Need to change based on the number of students or rows
 df_IEA514_results_all <- data.frame(no = c(1:n_rows))
-
+pathFile <- "results_IEA514_sem2_2020_2021/IEA514 R swirl Sem 2.csv"
 for (nLesson in 1:n_lesson){
   # Import the data
   
@@ -79,7 +79,7 @@ for (nLesson in 1:n_lesson){
   
   
   # Choose the data file to import
-  df_IEA514 <- google_form_decode(path = '/Users/Yusri/OneDrive - Universiti Sains Malaysia/Data_analysis/R_swirl/IEA514_swirl_sem1_2020_2021.csv')
+  df_IEA514 <- google_form_decode(path = pathFile)
   
   # Convert from seconds to date
   df_IEA514$datetime <- as.POSIXct(df_IEA514$datetime,origin="1970-01-01")
@@ -140,7 +140,7 @@ for (nLesson in 1:n_lesson){
 
 
 
-write.table(df_IEA514_results_all,'IEA514_temp.csv',sep=',')
+write.table(df_IEA514_results_all,'IEA514_temp2.csv',sep=',')
 
 
 
