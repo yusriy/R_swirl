@@ -9,9 +9,10 @@ library(dplyr)
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 37 # Need to change based on the number of students or rows
+n_rows <- 1 # Need to change based on the number of students or rows
 df_IEG301_results_all <- data.frame(no = c(1:n_rows))
 pathFile ="results_IEG301_sem2_2020_2021/IEG301 R Swirl 2020 2021 Semester 2.csv"
+#pathFile = "/Users/Yusri/Downloads/IEG301 R Swirl Semester 2.csv"
 
 for (nLesson in 1:n_lesson){
   # Import the data
