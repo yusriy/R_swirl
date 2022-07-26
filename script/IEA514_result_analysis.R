@@ -9,9 +9,9 @@ library(dplyr)
 # n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 12 # Need to change based on the number of students or rows
+n_rows <- 10 # Need to change based on the number of students or rows
 df_IEA514_results_all <- data.frame(no = c(1:n_rows))
-pathFile <- "results_IEA514_sem2_2020_2021/IEA514 R swirl Sem 2.csv"
+pathFile <- 'results_IEA514_sem2_2021_2022/IEA514_R_Swirl_Semester_2.csv'
 for (nLesson in 1:n_lesson){
   # Import the data
   
@@ -139,15 +139,38 @@ for (nLesson in 1:n_lesson){
 }
 
 
+#### Formatting the table ####
 
-write.table(df_IEA514_results_all,'IEA514_temp2.csv',sep=',')
+# n_course = 1 IEA514 R Programming E; n_lesson = 11
+
+if (n_course == 1) {
+  df_IEA514_results_lesson_1 <- df_IEA514_results_all[,-c(1,3,4,6,7,8,10,11,12,14,15,16,
+                                                          18,19,20,22,23,24,26,27,28,30,31,32,
+                                                          34,35,36,38,39,40,42,43,44)]
+  names(df_IEA514_results_lesson_1)[2:12] <- as.character(total_score$lesson)
+  
+  write.table(df_IEA514_results_lesson_1,'results_IEA514_sem2_2021_2022/IEA514_lesson_1.csv',sep=',')
+}
+
+
+# n_course = 2 IEA514 Exploratory Data Analysis; n_lesson = 9 
+
+if (n_course == 2) {
+  df_IEA514_results_lesson_2 <- df_IEA514_results_all[,-c(1,3,4,6,7,8,10,11,12,14,15,16,
+                                                          18,19,20,22,23,24,26,27,28,30,31,32,
+                                                          34,35,36)]
+  names(df_IEA514_results_lesson_2)[2:10] <- as.character(total_score$lesson)
+  
+  write.table(df_IEA514_results_lesson_2,'results_IEA514_sem2_2021_2022/IEA514_lesson_2.csv',sep=',')
+}
 
 
 
-#### Per user analysis ####
-i <- 1
 
-df_IEA514_user <- df_IEA514 %>% filter(user == names_user$value[i]) %>%
-  filter(course_name == names_courses$value[n_course]) %>% 
-  filter(lesson_name == as.character(total_score$lesson[n_lesson]))
+# #### Per user analysis ####
+# i <- 1
+# 
+# df_IEA514_user <- df_IEA514 %>% filter(user == names_user$value[i]) %>%
+#   filter(course_name == names_courses$value[n_course]) %>% 
+#   filter(lesson_name == as.character(total_score$lesson[n_lesson]))
 

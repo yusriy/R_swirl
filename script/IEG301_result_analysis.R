@@ -9,10 +9,10 @@ library(dplyr)
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 1 # Need to change based on the number of students or rows
+n_rows <- 31 # Need to change based on the number of students or rows
 df_IEG301_results_all <- data.frame(no = c(1:n_rows))
-pathFile ="results_IEG301_sem2_2020_2021/IEG301 R Swirl 2020 2021 Semester 2.csv"
-#pathFile = "/Users/Yusri/Downloads/IEG301 R Swirl Semester 2.csv"
+pathFile ="results_IEG301_sem2_2021_2022/IEG301 R Swirl Semester 2.csv"
+
 
 for (nLesson in 1:n_lesson){
   # Import the data
@@ -139,9 +139,30 @@ for (nLesson in 1:n_lesson){
   df_IEG301_results_all <- cbind(df_IEG301_results_all,df_IEG301_results)
 }
 
+#### Formatting the table ####
+
+# n_course = 1 IEG301 R Programming E; n_lesson = 11
+
+if (n_course == 1) {
+  df_IEG301_results_lesson_1 <- df_IEG301_results_all[,-c(1,3,4,6,7,8,10,11,12,14,15,16,
+                                                          18,19,20,22,23,24,26,27,28,30,31,32,
+                                                          34,35,36,38,39,40,42,43,44)]
+  names(df_IEG301_results_lesson_1)[2:12] <- as.character(total_score$lesson)
+  
+  write.table(df_IEG301_results_lesson_1,'results_IEG301_sem2_2021_2022/IEG301_lesson_1.csv',sep=',')
+}
 
 
-write.table(df_IEG301_results_all,'IEG301_temp_2.csv',sep=',')
+# n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9 
+
+if (n_course == 2) {
+  df_IEG301_results_lesson_2 <- df_IEG301_results_all[,-c(1,3,4,6,7,8,10,11,12,14,15,16,
+                                                          18,19,20,22,23,24,26,27,28,30,31,32,
+                                                          34,35,36)]
+  names(df_IEG301_results_lesson_2)[2:10] <- as.character(total_score$lesson)
+  
+  write.table(df_IEG301_results_lesson_2,'results_IEG301_sem2_2021_2022/IEG301_lesson_2.csv',sep=',')
+}
 
 
   
