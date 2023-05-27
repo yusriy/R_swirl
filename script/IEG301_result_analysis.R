@@ -9,10 +9,9 @@ library(dplyr)
 # n_course = 2 IEG301 Exploratory Data Analysis; n_lesson = 9
 n_course <- 2
 n_lesson <- 9
-n_rows <- 31 # Need to change based on the number of students or rows
+n_rows <- 32 # Need to change based on the number of students or rows
 df_IEG301_results_all <- data.frame(no = c(1:n_rows))
-pathFile ="results_IEG301_sem2_2021_2022/IEG301 R Swirl Semester 2.csv"
-
+pathFile = "results_IEG301_sem2_2022_2023/IEG301 R Swirl Semester 2 V2.csv"
 
 for (nLesson in 1:n_lesson){
   # Import the data
@@ -149,7 +148,7 @@ if (n_course == 1) {
                                                           34,35,36,38,39,40,42,43,44)]
   names(df_IEG301_results_lesson_1)[2:12] <- as.character(total_score$lesson)
   
-  write.table(df_IEG301_results_lesson_1,'results_IEG301_sem2_2021_2022/IEG301_lesson_1.csv',sep=',')
+  write.table(df_IEG301_results_lesson_1,'results_IEG301_sem2_2022_2023/IEG301_lesson_1.csv',sep=',')
 }
 
 
@@ -161,7 +160,7 @@ if (n_course == 2) {
                                                           34,35,36)]
   names(df_IEG301_results_lesson_2)[2:10] <- as.character(total_score$lesson)
   
-  write.table(df_IEG301_results_lesson_2,'results_IEG301_sem2_2021_2022/IEG301_lesson_2.csv',sep=',')
+  write.table(df_IEG301_results_lesson_2,'results_IEG301_sem2_2022_2023/IEG301_lesson_2.csv',sep=',')
 }
 
 
